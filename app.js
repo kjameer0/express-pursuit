@@ -3,12 +3,6 @@ const app = express();
 const usersController = require("./usersController");
 const cors = require("cors");
 
-app.get("/", (request, response) => {
-  response.send("This is an app my guy.");
-});
-
-app.use("/users", usersController);
-
 app.use(
   cors({
     origin: "*",
@@ -24,6 +18,12 @@ app.use((req, res, next) => {
 
   next();
 });
+
+app.get("/", (request, response) => {
+  response.send("This is an app my friend.");
+});
+
+app.use("/users", usersController);
 
 //create controller
 
