@@ -1,10 +1,14 @@
 const express = require("express");
 const app = express();
 const usersController = require("./usersController")
-
+const cors = require("cors")
 app.get("/", (request, response) => {
   response.send("This is an app my dude.")
 })
+
+app.use(cors({
+  origin: '*'
+}));
 
 //create controller
 
